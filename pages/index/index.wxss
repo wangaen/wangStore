@@ -1,10 +1,10 @@
-swiper {
+.swiper-box swiper {
   width: 750rpx;
   height: 300rpx;
 }
-.swiper-navi {
+.swiper-box .swiper-navi {
   width: 100%;
 }
-image {
+.swiper-box image {
   width: 100%;
 }
