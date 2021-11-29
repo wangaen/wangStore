@@ -1,0 +1,10 @@
+swiper {
+  width: 750rpx;
+  height: 300rpx;
+}
+.swiper-navi {
+  width: 100%;
+}
+image {
+  width: 100%;
+}

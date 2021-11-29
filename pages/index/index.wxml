@@ -1,4 +1,12 @@
-<view>
-  首页 
-  <text class="iconfont icon-shanchu"></text>
+<view class="index">
+  <SearchInput class="search-input"></SearchInput>
+  <view class="swiper-box">
+    <swiper indicator-dots autoplay circular interval="2000">
+      <swiper-item wx:for="{{swiperList}}" wx:for-item="item" wx:key="index">
+        <navigator class="swiper-navi">
+          <image mode="widthFix" src="{{item}}"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
 </view>

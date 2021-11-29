@@ -1,0 +1,17 @@
+.search-input {
+  height: 90rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bgColor);
+}
+navigator {
+  width: 96%;
+  height: 72rpx;
+  color: #666;
+  background-color: #fff;
+  border-radius: 12rpx;
+  line-height: 72rpx;
+  text-align: center;
+}

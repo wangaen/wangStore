@@ -1,28 +1,18 @@
+// pages/search/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    swiperList: []
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: 'http://127.0.0.1:3000/api/article/getArticleData',
-      method: "POST",
-      data: {
-        pageNum: 1,
-      },
-      success: (res) => {
-        this.setData({
-          swiperList: res.data.data.articleData[0].articleImgs
-        })
-      }
-    })
+
   },
 
   /**
