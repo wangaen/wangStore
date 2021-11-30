@@ -1,3 +1,4 @@
+import request from "../../request/index"
 Page({
 
   /**
@@ -10,19 +11,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.request({
-      url: 'http://127.0.0.1:3000/api/article/getArticleData',
-      method: "POST",
-      data: {
-        pageNum: 1,
-      },
-      success: (res) => {
-        this.setData({
-          swiperList: res.data.data.articleData[0].articleImgs
-        })
-      }
-    })
+  onLoad: async function (options) {
+    let res = await request.get("http://127.0.0.1:3000/api/swiper-image/list")
+    if (res.code === 200) {
+      this.setData({
+        swiperList: res.data.list
+      })
+    }
   },
 
   /**
