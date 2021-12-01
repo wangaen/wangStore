@@ -18,6 +18,7 @@ const requestContent = (url, data, method, header = {
             icon: 'error',
             duration: 2000
           })
+          resolve(res)
         }
       },
       fail: (err) => {
@@ -34,6 +35,7 @@ const requestContent = (url, data, method, header = {
             duration: 2000
           })
         }
+        resolve(err)
       },
     })
   })
