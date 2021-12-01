@@ -83,7 +83,7 @@ router.get('/swiper-image/list', async (req, res) => {
   try {
     let imagePath = __dirname.split("\\")
     imagePath.pop()
-    let list = fs.readdirSync(path.join(imagePath.join("/"), "/uploads/swiperImage")).map(item => Api.api + "/swiperImage/" + item)
+    let list = fs.readdirSync(path.join(imagePath.join("/"), "/uploads/swiperImage")).map(item => Api.api + "swiperImage/" + item)
     return res.status(200).json(tools.response(200, { list }, '获取成功'))
 
   } catch (err) {
