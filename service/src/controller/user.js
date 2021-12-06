@@ -23,7 +23,7 @@ class UserController {
     try {
       const { password, ...res } = await getUserInfo(ctx.request.body)
       const token = setToken(res)
-      ctx.body = returnResBody(200, "注册成功", { ...res, token })
+      ctx.body = returnResBody(200, "登录成功", { ...res, token })
     } catch (err) {
       console.error("登录失败", err);
       ctx.body = loginError
@@ -33,6 +33,7 @@ class UserController {
 
   // 修改密码
   async updatePass(ctx, next) {
+    console.log(ctx.state.info, ctx.request.body);
     ctx.body = returnResBody(200, "修改密码成功")
   }
 }
