@@ -1,9 +1,8 @@
-const { where } = require("sequelize/dist");
-const User = require("../model/user")
+const UserModel = require("../model/userModel")
 
 class UserService {
   async createUserInfo(userName, password) {
-    const res = await User.create({ userName, password })
+    const res = await UserModel.create({ userName, password })
     return res.dataValues
   };
   async getUserInfo({ id, userName, phone, isAdmin, realName, department }) {
@@ -14,7 +13,7 @@ class UserService {
     isAdmin && Object.assign(whereOpt, { isAdmin })
     realName && Object.assign(whereOpt, { realName })
     department && Object.assign(whereOpt, { department })
-    const res = await User.findOne({
+    const res = await UserModel.findOne({
       attributes: ['id', 'userName', 'department', 'realName', 'phone', 'isAdmin', 'password'],
       where: whereOpt
     })

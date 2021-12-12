@@ -203,3 +203,9 @@ npm install crypto-js
 npm i jsonwebtoken
 ```
 
+### 11、安装`koa-static`，开发文件夹供外面访问
+
+```
+npm i koa-static
+```
+

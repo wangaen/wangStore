@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken")
 const { SECRET_KEY } = require("../../config/default")
-const { tokenIsNull, tokenIsExpired, tokenIsInvalid } = require("./auth_constant")
+const { tokenIsNull, tokenIsExpired, tokenIsInvalid, notUploadImgPermission } = require("./authConstant")
 
 const auth = async (ctx, next) => {
   const { authorization } = ctx.request.header
@@ -35,4 +35,14 @@ const auth = async (ctx, next) => {
 
 }
 
-module.exports = { auth }
+const checkIsAdmin = async (ctx, next) => {
+  const { isAdmin } = ctx.state.info;
+  if (!isAdmin) {
+    console.error("不是管理员，没权限上传图片");
+    ctx.app.emit("error", 500, ctx)
+    ctx.body = notUploadImgPermission
+    return
+  }
+  await next()
+}
+module.exports = { auth, checkIsAdmin }

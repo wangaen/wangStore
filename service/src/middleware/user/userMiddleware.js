@@ -1,4 +1,4 @@
-const { userInfoIsNull, userIsExist, getUserInfoError, userNotExist, passwordError } = require("./user_constant")
+const { userInfoIsNull, userIsExist, getUserInfoError, userNotExist, passwordError } = require("./userConstant")
 const { getUserInfo } = require("../../service/user")
 const { encryptFun, decryptFun } = require("../../utils/secret")
 const { getToken } = require("../../utils/token")

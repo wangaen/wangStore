@@ -1,6 +1,6 @@
 const { createUserInfo } = require("../service/user")
 const { returnResBody } = require("../utils/utils")
-const { registerError, loginError } = require("../middleware/user/user_constant")
+const { registerError, loginError } = require("../middleware/user/userConstant")
 const { getUserInfo } = require("../service/user")
 const { setToken } = require("../utils/token")
 

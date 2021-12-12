@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    let res = await request.get("/api/swiper-image/list")
+    let res = await request.get("/admin/image/lists")
     if (res.code === 200) {
       this.setData({
         swiperList: res.data.list

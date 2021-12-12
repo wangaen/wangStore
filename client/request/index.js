@@ -1,7 +1,7 @@
-const defaultApi = "http://192.168.43.58:3000"
+const defaultApi = "http://192.168.43.58:3080"
 const requestContent = (url, data, method, header = {
   'content-type': 'application/json'
-}, timeout = 15000) => {
+}, timeout = 10000) => {
   return new Promise((resolve) => {
     wx.request({
       url: defaultApi + url,
