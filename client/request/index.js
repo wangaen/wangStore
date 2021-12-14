@@ -10,6 +10,7 @@ const requestContent = (url, data, method, header = {
       method,
       timeout,
       success: (res) => {
+        console.log(res);
         if (res.statusCode === 200) {
           resolve(res.data)
         } else {

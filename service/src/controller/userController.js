@@ -3,6 +3,7 @@ const { returnResBody } = require("../utils/utils")
 const { registerError, loginError } = require("../middleware/user/userConstant")
 const { getUserInfo } = require("../service/user")
 const { setToken } = require("../utils/token")
+const http = require("http")
 
 class UserController {
   // 注册
@@ -33,8 +34,15 @@ class UserController {
 
   // 修改密码
   async updatePass(ctx, next) {
-    console.log(ctx.state.info, ctx.request.body);
-    ctx.body = returnResBody(200, "修改密码成功")
+    let code = ctx.query.code
+    var body_request = {
+      hostname: 'https://api.weixin.qq.com',
+      path: `/sns/jscode2session?appid=wx095ef69ad17b5a59&secret=4c76604d52f5e3b22fd832c61956ce4a&js_code=${code}&grant_type=authorization_code`,
+    };
+    http.request(body_request, (res) => {
+      console.log(res);
+    })
+    ctx.body = "123"
   }
 }
 

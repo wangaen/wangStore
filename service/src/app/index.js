@@ -9,6 +9,7 @@ const app = new Koa()
 
 app.use(KoaBody({
   multipart: true, //开启上传文件
+  parsedMethods: ['POST', 'PUT', 'PATCH', 'DELETE', 'GET'],
   formidable: {
     uploadDir: path.join(__dirname, "../upload"), // 上传文件路径
     keepExtensions: true, // 包含原始文件的扩展名
