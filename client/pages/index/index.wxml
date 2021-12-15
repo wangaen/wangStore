@@ -1,5 +1,7 @@
 <view class="index">
+  <!-- 搜索框 -->
   <SearchInput class="search-input"></SearchInput>
+  <!-- 轮播图 -->
   <view class="swiper-box">
     <swiper indicator-dots autoplay circular interval="2000">
       <swiper-item wx:for="{{swiperList}}" wx:for-item="item" wx:key="index">
@@ -8,5 +10,12 @@
         </navigator>
       </swiper-item>
     </swiper>
+  </view>
+  <!-- 导航栏 -->
+  <view class="navigate-box">
+    <navigator class="navigate-navi" wx:for="{{navigateList}}" wx:key="id">
+      <image mode="widthFix" src="{{item.imgUrl}}"></image>
+      <text>{{item.name}}</text>
+    </navigator>
   </view>
 </view>

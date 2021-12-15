@@ -1,4 +1,4 @@
-const defaultApi = "http://192.168.43.58:3080"
+const defaultApi = "http://127.0.0.1:3080"
 const requestContent = (url, data, method, header = {
   'content-type': 'application/json'
 }, timeout = 10000) => {

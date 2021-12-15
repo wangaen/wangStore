@@ -7,6 +7,7 @@ const router = new Router({ prefix: "/image" })
 
 const { APP_BASE_API, APP_PORT } = require("../../config/default")
 const { returnResBody } = require("../../utils/utils")
+const navigateModel = require("../../model/admin/navigateModel")
 
 // 获取首页轮播图图片列表
 router.get("/lists", (ctx, next) => {
@@ -22,7 +23,18 @@ router.get("/lists", (ctx, next) => {
   }
 })
 
-
+// 获取导航图图片列表
+router.get("/navigate/lists", async (ctx, next) => {
+  try {
+    const list = await navigateModel.findAll()
+    ctx.body = returnResBody(200, "", { list })
+  } catch (err) {
+    ctx.body = {
+      msg: "获取轮播图图片异常",
+      data: ""
+    }
+  }
+})
 
 // 导出
 module.exports = router

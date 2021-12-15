@@ -8,3 +8,28 @@
 .swiper-box image {
   width: 100%;
 }
+
+.navigate-box {
+  width: 100%;
+  height: 150rpx;
+}
+.navigate-navi {
+  float: left;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+}
+.navigate-navi image {
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: top;
+  margin-top: 20rpx;
+}
+.navigate-navi text {
+  display: block;
+  line-height: 36rpx;
+  margin-top: 14rpx;
+  height: 36rpx;
+  font-size: 24rpx;
+  color: #666;
+}
