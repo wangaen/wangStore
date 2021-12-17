@@ -14,7 +14,7 @@ router.post("/register", checkUserInfoIsNull, checkUserIsExist, encryptPassword,
 router.post("/login", checkUserInfoIsNull, checkLoginInfo, login)
 
 // 修改密码
-router.patch("/update_password", auth, updatePass)
+router.get("/update_password", updatePass)
 
 
 // 导出

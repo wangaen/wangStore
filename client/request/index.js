@@ -1,4 +1,4 @@
-const defaultApi = "http://192.168.43.58:3080"
+const defaultApi = "http://127.0.0.1:3080"
 const requestContent = (url, data, method, header = {
   'content-type': 'application/json'
 }, timeout = 10000) => {
@@ -10,6 +10,7 @@ const requestContent = (url, data, method, header = {
       method,
       timeout,
       success: (res) => {
+        console.log(res);
         if (res.statusCode === 200) {
           resolve(res.data)
         } else {
