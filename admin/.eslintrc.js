@@ -42,6 +42,7 @@ module.exports = {
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "vue/multi-word-component-names": "off",
     semi: ["off", "never"],
     "@typescript-eslint/no-unused-vars": [
       "error",
@@ -68,7 +69,7 @@ module.exports = {
     "vue/attribute-hyphenation": "off",
     "vue/require-default-prop": "off",
     "vue/html-self-closing": [
-      "error",
+      "off",
       {
         html: {
           void: "always",
