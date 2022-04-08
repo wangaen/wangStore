@@ -10,7 +10,7 @@ Page({
     this.getNavigateImgLists()
   },
   getSwiperImgLists: async function () {
-    const res = await request.get("/admin/image/lists")
+    const res = await request.get("/app/image/swiper")
     if (res.code === 200) {
       this.setData({
         swiperList: res.data.list
@@ -18,7 +18,7 @@ Page({
     }
   },
   getNavigateImgLists: async function () {
-    const res = await request.get("/admin/image/navigate/lists")
+    const res = await request.get("/app/image/navigate")
     if (res.code === 200) {
       this.setData({
         navigateList: res.data.list

@@ -1,6 +1,12 @@
 /dist/*
+/.vscode/*
 /node_modules/**
 
 **/*.svg
+**/*.sh
 
 /public/*
+
+package-lock.json
+package.json
+tsconfig.json

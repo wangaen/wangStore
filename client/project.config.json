@@ -49,7 +49,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
   "appid": "wx095ef69ad17b5a59",
-  "projectname": "wangStore",
+  "projectname": "client",
   "debugOptions": {
     "hidedInDevtools": []
   },

@@ -2,6 +2,7 @@ const Koa = require("koa")
 const KoaBody = require("koa-body")
 const path = require("path")
 const router = require("../routers")
+// 开发文件夹
 const KoaStatic = require("koa-static")
 
 // 创建 koa 对象
