@@ -9,9 +9,11 @@
 		"prettier": "prettier --write \"./**/**/*.{js,tsx,ts,css,less,scss,vue,html}\""
 	},
 	"dependencies": {
-		"vue": "^3.2.25"
+		"vue": "^3.2.25",
+		"vue-router": "^4.0.14"
 	},
 	"devDependencies": {
+		"@types/node": "^17.0.23",
 		"@typescript-eslint/eslint-plugin": "^5.18.0",
 		"@typescript-eslint/parser": "^5.18.0",
 		"@vitejs/plugin-vue": "^2.3.0",
