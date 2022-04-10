@@ -1,19 +1,26 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
+import { useRouter } from 'vue-router';
 
-const a = 1111111111111111;
-const obj = { a };
-const arr = [1, 2, 3, 4, 5];
-console.log(a, obj, arr);
-if (a) {
-  console.log('2333333333333', import.meta.env.MODE);
-  console.log('34234234');
+const router = useRouter();
+function goRegister() {
+  router.push({ name: 'Login' });
+  console.log('register', router);
+}
+function goLogin() {
+  console.log('login');
 }
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <div>
+    <h1>这是主页。。。。</h1>
+    <h1>这是主页。。。。</h1>
+    <p>
+      <button @click="goLogin">去登录</button>
+      <button @click="goRegister">去注册</button>
+    </p>
+  </div>
 </template>
 
 <style>
