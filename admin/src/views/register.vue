@@ -1,17 +1,17 @@
-<script setup lang="ts">
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-function goLogin() {
-  router.push('/login');
-}
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div>
-    <h1>注册页面</h1>
-    <p>
-      <button @click="goLogin">去登录</button>
-    </p>
+    <el-icon>
+      <edit />
+    </el-icon>
+    <el-icon class="is-loading">
+      <loading />
+    </el-icon>
+    <hr />
+    <edit style="width: 1em; height: 1em; margin-right: 8px" />
+    <share style="width: 1em; height: 1em; margin-right: 8px" />
+    <delete style="width: 1em; height: 1em; margin-right: 8px" />
+    <search style="width: 1em; height: 1em; margin-right: 8px" />
   </div>
 </template>
