@@ -9,6 +9,7 @@
 		"prettier": "prettier --write \"./**/**/*.{js,tsx,ts,css,less,scss,vue,html}\""
 	},
 	"dependencies": {
+		"axios": "^0.26.1",
 		"element-plus": "^2.1.9",
 		"pinia": "^2.0.13",
 		"vue": "^3.2.25",
