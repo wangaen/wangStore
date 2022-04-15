@@ -29,4 +29,5 @@ class Request {
   }
 }
 
-export default new Request(configData);
+const http = new Request(configData);
+export default http.instance;

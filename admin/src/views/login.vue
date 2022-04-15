@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import request from '@/utils/axios';
+import http from '@/utils/axios';
 
 // const router = useRouter();
 async function goRegister() {
-  const res = await request.instance.get('/app/image/swiper');
+  const res = await http.get('/app/image/swiper');
   console.log(res);
 }
 </script>
