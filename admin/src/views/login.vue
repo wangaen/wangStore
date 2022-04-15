@@ -1,22 +1,15 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-import userStore from '@/store/modules/user';
+import request from '@/utils/axios';
 
-const router = useRouter();
-function goRegister() {
-  router.push('/register');
+// const router = useRouter();
+async function goRegister() {
+  const res = await request.instance.get('/app/image/swiper');
+  console.log(res);
 }
 </script>
 
 <template>
   <div>
-    <p>姓名：{{ userStore.name }}</p>
-    <p>年龄：{{ userStore.age }}</p>
-    <p>性别：{{ userStore.sex }}</p>
-    <p>用户信息：{{ userStore.getUserInfo }}</p>
-    <p>
-      <button @click="userStore.updateName('李四')">修改用户信息</button>
-    </p>
     <hr />
     <h1>登录页面</h1>
     <p>

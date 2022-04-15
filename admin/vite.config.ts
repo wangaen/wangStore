@@ -28,6 +28,13 @@ export default defineConfig({
     port: 6868,
     open: true, // 启动服务时直接打开浏览器
     cors: true, // 允许跨域
+    proxy: {
+      '^/api': {
+        target: 'http://192.168.1.129:3080',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
   build: {
     outDir: 'ws_admin_dist',
