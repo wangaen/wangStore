@@ -12,8 +12,18 @@ async function goRegister() {
   <div>
     <hr />
     <h1>登录页面</h1>
-    <p>
-      <button @click="goRegister">去注册</button>
+    <p class="btn-p">
+      <button class="btn" @click="goRegister">去注册</button>
     </p>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.btn-p {
+  border: 1px solid red;
+  .btn {
+    padding: 10px;
+    border: 1px solid green;
+  }
+}
+</style>
