@@ -24,5 +24,6 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-absolute-path': 'off',
     'vue/multi-word-component-names': 'off', // 防止组件名是单个单词的报红
+    'no-unused-expressions': 'off', // 使用 && || 去执行后面的表达式时报红
   },
 };

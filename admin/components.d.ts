@@ -7,6 +7,7 @@ declare module '@vue/runtime-core' {
     ElAside: typeof import('element-plus/es')['ElAside'];
     ElButton: typeof import('element-plus/es')['ElButton'];
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker'];
+    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElContainer: typeof import('element-plus/es')['ElContainer'];
     ElDialog: typeof import('element-plus/es')['ElDialog'];
     ElHeader: typeof import('element-plus/es')['ElHeader'];

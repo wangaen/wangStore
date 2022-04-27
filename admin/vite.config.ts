@@ -25,7 +25,7 @@ export default defineConfig({
   base: './',
   server: {
     host: '0.0.0.0',
-    port: 6868,
+    port: 8686,
     open: true, // 启动服务时直接打开浏览器
     cors: true, // 允许跨域
     proxy: {
@@ -37,7 +37,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'ws_admin_dist',
     // 去除打包大小超过500kb的警告
     chunkSizeWarningLimit: 1000,
   },
