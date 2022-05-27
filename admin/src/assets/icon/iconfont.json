@@ -1,0 +1,37 @@
+{
+  "id": "3433138",
+  "name": "wangStore",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1084694",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "1115071",
+      "name": "商家",
+      "font_class": "shangjia",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "11058856",
+      "name": "小程序",
+      "font_class": "xiaochengxu",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "13625313",
+      "name": "商品",
+      "font_class": "shangpin",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    }
+  ]
+}

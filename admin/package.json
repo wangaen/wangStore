@@ -1,7 +1,7 @@
 {
 	"name": "admin",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.26.1",
+		"dayjs": "^1.11.2",
 		"echarts": "^5.3.2",
 		"element-plus": "^2.1.9",
 		"pinia": "^2.0.13",

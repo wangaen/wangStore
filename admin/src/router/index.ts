@@ -1,28 +1,32 @@
 import { createRouter, createWebHistory, Router } from 'vue-router';
+import homeRouter from './modules/home';
+import miniAppManageRouter from './modules/miniAppManage';
+import goodsManageRouter from './modules/goodsManage';
+import sellerManageRouter from './modules/sellerManage';
 
 const router: Router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: () => import('@/App.vue'),
-      redirect: '/login',
+      redirect: '/home',
+      component: () => import('@/layout/Index.vue'),
+      children: [
+        { ...homeRouter },
+        { ...miniAppManageRouter },
+        { ...goodsManageRouter },
+        { ...sellerManageRouter },
+      ],
     },
     {
       path: '/login',
       name: 'Login',
-      component: () => import('@/views/login.vue'),
-    },
-    {
-      path: '/register',
-      name: 'Register',
-      component: () => import('@/views/register.vue'),
+      component: () => import('@/views/Login.vue'),
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: () => import('@/views/notFound.vue'),
+      component: () => import('@/views/NotFound.vue'),
     },
   ],
 });

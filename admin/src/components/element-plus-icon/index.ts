@@ -9,9 +9,28 @@ import {
   Share,
   Loading,
   Delete,
+  Expand,
+  Fold,
+  UserFilled,
+  Monitor,
+  ArrowDownBold,
+  Plus,
 } from '@element-plus/icons-vue';
 
-const components = [Edit, Search, Camera, Share, Loading, Delete];
+const components = [
+  Edit,
+  Search,
+  Camera,
+  Share,
+  Loading,
+  Delete,
+  Expand,
+  Fold,
+  UserFilled,
+  Monitor,
+  ArrowDownBold,
+  Plus,
+];
 
 // 按需导出图标组件
 export default (app: App): void => {
