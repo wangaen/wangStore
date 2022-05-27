@@ -9,7 +9,7 @@ import '@/assets/css/global.scss';
 // 导入 element-plus-icon
 import elementPlusIcon from './components/element-plus-icon';
 
-// 引入Elmessage和ElLoading的css样式文件
+// 引入Elmessage、ElmessageBox、ElLoading的css样式文件
 import 'element-plus/theme-chalk/el-loading.css';
 import 'element-plus/theme-chalk/el-message.css';
 import 'element-plus/theme-chalk/el-message-box.css';
