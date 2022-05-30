@@ -11,7 +11,6 @@
             </keep-alive>
           </router-view>
         </el-main>
-        <Copyright />
       </el-container>
     </el-container>
   </div>
@@ -20,7 +19,6 @@
 <script lang="ts" setup>
 import Header from '@/layout/header/Header.vue';
 import Menu from '@/layout/aside/Menu.vue';
-import Copyright from '@/layout/Copyright.vue';
 </script>
 <style lang="scss" scoped>
 .index {
@@ -38,9 +36,10 @@ import Copyright from '@/layout/Copyright.vue';
   .el-main {
     background-color: #eef0f2;
     padding: 10px !important;
-    max-height: calc(100vh - 36px - 64px);
+    max-height: calc(100vh - 64px);
     z-index: 1;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 </style>

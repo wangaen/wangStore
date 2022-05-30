@@ -15,6 +15,8 @@ import {
   Monitor,
   ArrowDownBold,
   Plus,
+  Avatar,
+  Lock,
 } from '@element-plus/icons-vue';
 
 const components = [
@@ -30,6 +32,8 @@ const components = [
   Monitor,
   ArrowDownBold,
   Plus,
+  Avatar,
+  Lock,
 ];
 
 // 按需导出图标组件
