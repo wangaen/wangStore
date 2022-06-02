@@ -58,3 +58,11 @@ export const getRemainingTime = (lastTime: string, first = dayjs()) => {
   }
   return '0秒';
 };
+
+// 判断是否是移动端
+export const isMoblie = () => {
+  const UA = window.navigator.userAgent.toLowerCase();
+  const isIPhone = UA.includes('iphone');
+  const isAndroid = UA.includes('android');
+  return isIPhone || isAndroid;
+};

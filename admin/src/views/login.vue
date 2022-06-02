@@ -88,6 +88,9 @@ const activeTab = ref(1);
   z-index: -1;
 }
 @media screen and (max-width: 1200px) {
+  .title {
+    display: none;
+  }
   .bg-xhr-img {
     display: none;
   }
@@ -96,6 +99,9 @@ const activeTab = ref(1);
   }
 }
 @media screen and (min-width: 1200px) {
+  .title {
+    display: block;
+  }
   .bg-xhr-img {
     display: block;
   }

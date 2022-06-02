@@ -39,12 +39,14 @@ import Breadcrumb from './Breadcrumb.vue';
 import common from '@/store/modules/common';
 import Icon from '@/components/common/Icon.vue';
 
+const props = defineProps({
+  appWidth: {
+    type: Number,
+    default: 0,
+  },
+});
+
 const menuOptions = [
-  // {
-  //   label: '个人中心',
-  //   routeName: 'UserInfo',
-  //   icon: 'user',
-  // },
   {
     label: '退出登录',
     routeName: 'Logout',
@@ -55,9 +57,8 @@ const collapsed = computed({
   get() {
     return common.collapsed;
   },
-  set(val) {
+  set(val: boolean) {
     common.toggleCollapsed(val);
-    sessionStorage.setItem('collapsed', JSON.stringify(val));
   },
 });
 const router = useRouter();
@@ -70,12 +71,16 @@ const clickMenuItem = (item: { routeName: string }) => {
 
 const toggleCollapsed = () => {
   collapsed.value = !collapsed.value;
+  if (props.appWidth <= 768) {
+    common.changeIsAside(!collapsed.value);
+  }
 };
 </script>
 <style lang="scss" scoped>
 .Header {
   height: 64px;
   display: flex;
+  box-sizing: border-box;
   padding: 0 20px;
   justify-content: space-between;
   align-items: center;
