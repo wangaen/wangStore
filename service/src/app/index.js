@@ -18,23 +18,6 @@ app.use(
     },
   }),
 );
-// 解决跨域
-// app.use(async (ctx, next) => {
-//   // 必选。允许那个源地址可以发起请求
-//   ctx.set("Access-Control-Allow-Origin", ctx.header.origin);
-//   // 可选。是否允许浏览器发送Cookie，默认 false，false时可以直接删除
-//   ctx.set("Access-Control-Allow-Credentials", true);
-//   // 必选。用来列出浏览器的CORS请求会用到哪些HTTP方法
-//   ctx.set("Access-Control-Request-Method", "PUT,POST,GET,DELETE,OPTIONS");
-//   // 可选。XMLHttpRequest 对象的 getResponseHeader() 方法需额外多获取以下字段信息。
-//   ctx.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, cc");
-//   // "预检"请求用的请求方法是OPTIONS，表示这个请求是用来询问的
-//   if (ctx.method === "OPTIONS") {
-//     ctx.status = 204;
-//     return;
-//   }
-//   await next();
-// });
 app.use(KoaStatic(path.join(__dirname, "../upload")));
 app.use(router.routes()).use(router.allowedMethods());
 
