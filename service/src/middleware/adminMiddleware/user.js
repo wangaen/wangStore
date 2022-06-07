@@ -1,23 +1,13 @@
 const { userInfoIsNull, userIsExist, getUserInfoError, userNotExist, passwordError } = require("./userConstant");
-const { getUserInfo } = require("../../service/user");
+const { getAdminUserInfo } = require("../../service/adminService/user");
 const { encryptFun, decryptFun } = require("../../utils/secret");
 const { getToken } = require("../../utils/token");
 
 module.exports = {
-  // 检查用户名或密码是否为空
-  checkUserInfoIsNull: async (ctx, next) => {
-    const { userName, password, type } = ctx.request.body;
-    if (!userName || !password || !type || (type !== 1 && type !== 2)) {
-      ctx.body = userInfoIsNull;
-      ctx.app.emit("error", 400, ctx);
-      return;
-    }
-    await next();
-  },
-  // 检查用户是否存在
-  checkUserIsExist: async (ctx, next) => {
+  // 检查管理员用户是否存在
+  checkAdminUserIsExist: async (ctx, next) => {
     try {
-      const res = await getUserInfo(ctx.request.body);
+      const res = await getAdminUserInfo(ctx.request.body);
       if (res) {
         console.error("用户已存在", { userName: ctx.request.body.userName });
         ctx.body = userIsExist;

@@ -7,7 +7,6 @@ const router = new Router({ prefix: "/image" })
 
 const { APP_BASE_API, APP_PORT } = require("../../config/default")
 const { returnResBody } = require("../../utils/utils")
-const navigateModel = require("../../model/adminModel/appManage/navigateModel")
 
 // // 获取首页轮播图图片列表
 // router.get("/lists", (ctx, next) => {
