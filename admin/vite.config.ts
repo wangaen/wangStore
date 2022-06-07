@@ -30,7 +30,7 @@ export default defineConfig({
     cors: true, // 允许跨域
     proxy: {
       '^/api': {
-        target: 'http://192.168.1.129:3080',
+        target: 'http://192.168.1.188:3080',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

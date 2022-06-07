@@ -1,5 +1,6 @@
-import axios, { AxiosResponse } from 'axios';
 import type { AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios from 'axios';
+import { ApiAxiosResponse } from './type';
 
 const configData: AxiosRequestConfig = {
   baseURL: '/api',
@@ -23,11 +24,11 @@ class Request {
     );
     // 响应拦截
     this.instance.interceptors.response.use(
-      (res: AxiosResponse) => res.data,
+      (res: ApiAxiosResponse): any => res.data,
       (err: any) => err,
     );
   }
 }
 
-const http = new Request(configData);
-export default http.instance;
+const api = new Request(configData);
+export default api.instance;

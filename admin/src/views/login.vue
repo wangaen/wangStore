@@ -2,33 +2,52 @@
 import { ElMessage, ElLoading } from 'element-plus/es';
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import type { FormInstance, FormRules } from 'element-plus';
+import { adminLoginApi, LoginFormType } from '@/api/login';
+import { ApiReturnBody } from '@/utils/axios/type';
 
-const loginForm = reactive({
-  username: '',
+const loginForm = reactive<LoginFormType>({
+  userName: '',
   password: '',
+  type: 1,
 });
 
-const router = useRouter();
-const toLogin = () => {
-  const { username, password } = loginForm;
-  if (username === 'system' && password === 'admin') {
-    ElMessage.success('登录成功');
-    const loadingFull = ElLoading.service({
-      lock: true,
-      text: '正在进行初始化...',
-      spinner: 'el-icon-loading',
-      background: 'rgba(0, 0, 0, 0.7)',
-    });
-    setTimeout(() => {
-      router.push('/home');
-      loadingFull.close();
-      ElMessage.closeAll();
-    }, 800);
-    return;
-  }
-  ElMessage.error('用户名或密码错误');
-};
 const activeTab = ref(1);
+const tabChange = (num: 1 | 2) => {
+  activeTab.value = num;
+  loginForm.type = num;
+};
+
+const router = useRouter();
+const ruleFormRef = ref<FormInstance>();
+const toLogin = async () => {
+  await ruleFormRef.value?.validate(async (valid) => {
+    if (valid) {
+      const res: ApiReturnBody = await adminLoginApi(loginForm);
+      if (res.code === 200) {
+        ElMessage.success('登录成功');
+        const loadingFull = ElLoading.service({
+          lock: true,
+          text: '正在进行初始化...',
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.7)',
+        });
+        setTimeout(() => {
+          router.push('/home');
+          loadingFull.close();
+          ElMessage.closeAll();
+        }, 800);
+      } else {
+        ElMessage.warning(res.msg);
+      }
+    }
+  });
+};
+
+const rules = reactive<FormRules>({
+  userName: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+});
 </script>
 
 <template>
@@ -37,10 +56,10 @@ const activeTab = ref(1);
     <div class="login_pane">
       <img src="@/assets/images/logo.png" alt="" class="logo-img" />
       <div class="login-tab">
-        <span :class="{ 'active-tab': activeTab === 1 }" @click="activeTab = 1"
+        <span :class="{ 'active-tab': activeTab === 1 }" @click="tabChange(1)"
           >管理员登录</span
         >
-        <span :class="{ 'active-tab': activeTab === 2 }" @click="activeTab = 2"
+        <span :class="{ 'active-tab': activeTab === 2 }" @click="tabChange(2)"
           >商家登录</span
         >
       </div>
@@ -48,14 +67,15 @@ const activeTab = ref(1);
         <p class="title">欢迎登录</p>
         <el-form
           :model="loginForm"
-          ref="formRef"
+          ref="ruleFormRef"
+          :rules="rules"
           label-width="0px"
           :size="'large'"
         >
-          <el-form-item label="" prop="username">
+          <el-form-item label="" prop="userName">
             <el-icon :color="'#0099ff'" :size="22"><Avatar /></el-icon>
             <el-input
-              v-model="loginForm.username"
+              v-model="loginForm.userName"
               placeholder="请输入用户名"
             ></el-input>
           </el-form-item>
