@@ -12,7 +12,7 @@
     <div class="right_part">
       <el-dropdown>
         <span class="el-dropdown-link user-info-area">
-          <Icon name="icon-001-man" class="icon-box"></Icon>
+          <!-- <Icon name="icon-001-man" class="icon-box"></Icon> -->
           <span class="user-name">system</span>
           <el-icon class="icon-down"><arrow-down-bold /></el-icon>
         </span>
@@ -37,7 +37,8 @@ import { computed } from 'vue';
 import { ElMessage } from 'element-plus/es';
 import Breadcrumb from './Breadcrumb.vue';
 import common from '@/store/modules/common';
-import Icon from '@/components/common/Icon.vue';
+import { removeToken } from '@/utils/token/index';
+// import Icon from '@/components/common/Icon.vue';
 
 const props = defineProps({
   appWidth: {
@@ -64,6 +65,7 @@ const collapsed = computed({
 const router = useRouter();
 const clickMenuItem = (item: { routeName: string }) => {
   if (item.routeName === 'Logout') {
+    removeToken();
     ElMessage.success('已成功退出');
     router.push({ name: 'Login' });
   }

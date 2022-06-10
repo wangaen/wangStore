@@ -1,5 +1,6 @@
 import type { AxiosInstance, AxiosRequestConfig } from 'axios';
 import axios from 'axios';
+import { getToken } from '../token';
 import { ApiAxiosResponse } from './type';
 
 const configData: AxiosRequestConfig = {
@@ -8,7 +9,7 @@ const configData: AxiosRequestConfig = {
   headers: {
     'Content-Type': 'application/json',
     // 携带 token
-    // Authorization: 'Bearer ' + getToken(),
+    Authorization: `Bearer ${getToken()}`,
   },
 };
 
@@ -25,7 +26,10 @@ class Request {
     // 响应拦截
     this.instance.interceptors.response.use(
       (res: ApiAxiosResponse): any => res.data,
-      (err: any) => err,
+      (err: any) => {
+        console.log(err);
+        return Promise.reject(err);
+      },
     );
   }
 }

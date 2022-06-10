@@ -5,6 +5,11 @@ import { useRouter } from 'vue-router';
 import type { FormInstance, FormRules } from 'element-plus';
 import { adminLoginApi, LoginFormType } from '@/api/login';
 import { ApiReturnBody } from '@/utils/axios/type';
+import { setToken } from '@/utils/token';
+
+interface TOKEN {
+  token: string;
+}
 
 const loginForm = reactive<LoginFormType>({
   userName: '',
@@ -23,9 +28,10 @@ const ruleFormRef = ref<FormInstance>();
 const toLogin = async () => {
   await ruleFormRef.value?.validate(async (valid) => {
     if (valid) {
-      const res: ApiReturnBody = await adminLoginApi(loginForm);
+      const res: ApiReturnBody<TOKEN> = await adminLoginApi(loginForm);
       if (res.code === 200) {
         ElMessage.success('登录成功');
+        setToken(res.data.token);
         const loadingFull = ElLoading.service({
           lock: true,
           text: '正在进行初始化...',
@@ -36,7 +42,7 @@ const toLogin = async () => {
           router.push('/home');
           loadingFull.close();
           ElMessage.closeAll();
-        }, 800);
+        }, 500);
       } else {
         ElMessage.warning(res.msg);
       }

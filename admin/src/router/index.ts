@@ -3,13 +3,16 @@ import homeRouter from './modules/home';
 import miniAppManageRouter from './modules/miniAppManage';
 import goodsManageRouter from './modules/goodsManage';
 import sellerManageRouter from './modules/sellerManage';
+import { getToken } from '@/utils/token';
+
+const initRedirect = getToken() ? '/home' : '/login';
 
 const router: Router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/',
-      redirect: '/home',
+      redirect: initRedirect,
       component: () => import('@/layout/Index.vue'),
       children: [
         { ...homeRouter },
