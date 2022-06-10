@@ -1,4 +1,4 @@
-const { userInfoIsNull, userNotExist, passwordError, getUserInfoError } = require("./commonConstant");
+const { userInfoIsNull, userNotExist, passwordError, getUserInfoError, userIdIsNull } = require("./commonConstant");
 const { getAdminUserInfo } = require("../../service/adminService/user");
 const { decryptFun } = require("../../utils/secret");
 
@@ -34,5 +34,20 @@ module.exports = {
       ctx.body = getUserInfoError;
       ctx.app.emit("error", 500, ctx);
     }
+  },
+  // 检查用户id是否为空
+  checkUserIdIsNull: async (ctx, next) => {
+    const { userId } = ctx.query;
+    if (!userId) {
+      ctx.body = userIdIsNull;
+      return;
+    }
+    const res = await getAdminUserInfo({ userId });
+    if (!res) {
+      console.error("用户不存在", { userName: ctx.request.body.userName });
+      ctx.body = userNotExist;
+      return;
+    }
+    await next();
   },
 };

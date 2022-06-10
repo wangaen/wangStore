@@ -6,4 +6,5 @@ module.exports = {
   passwordError: returnResBody("c10003", "密码不匹配", ""),
   getUserInfoError: returnResBody("c10004", "获取用户信息失败", ""),
   loginError: returnResBody("c10005", "登录失败", ""),
+  userIdIsNull: returnResBody("c10006", "userId 为空", ""),
 };
