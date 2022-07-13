@@ -16,6 +16,7 @@ export default defineComponent({
   setup() {
     return {
       locale: zhCn,
+			// 你好
     };
   },
 });
